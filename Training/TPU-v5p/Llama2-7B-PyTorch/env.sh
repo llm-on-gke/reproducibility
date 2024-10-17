@@ -1,5 +1,5 @@
 # Uncomment below to set the Huggingface token
-# HF_TOKEN=hf_***
+HF_TOKEN=hf_XXX
 
 PJRT_DEVICE=TPU
 XLA_IR_DEBUG=1

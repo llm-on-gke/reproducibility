@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOCKER_IMAGE="us-central1-docker.pkg.dev/tpu-pytorch/docker/reproducibility/llama2@sha256:3fda2382a36c8a7c39f8838f9a1abde3a161fd47283b052d04fa090e3ee210f5"
+DOCKER_IMAGE="us-central1-docker.pkg.dev/tpu-pytorch-releases/docker/xla:r2.4.0_3.10_tpuvm" #"us-east1-docker.pkg.dev/northam-ce-mlai-tpu/gke-llm/llama2-benchmark:latest" #"us-central1-docker.pkg.dev/tpu-pytorch/docker/reproducibility/llama2@sha256:3fda2382a36c8a7c39f8838f9a1abde3a161fd47283b052d04fa090e3ee210f5"
 
 worker_id=$(curl -s "http://metadata.google.internal/computeMetadata/v1/instance/attributes/agent-worker-number" -H 'Metadata-Flavor: Google')
 
@@ -30,3 +30,5 @@ stdbuf -oL bash <<-PIPE_EOF 2>&1 | sed "s/^/[worker $slice_id:$worker_id] /g" | 
     /tmp/home/train.sh
 
 PIPE_EOF
+
+#docker run --rm -it    --name llama2-test     --privileged     --env-file env.sh     -v /home/$USER:/tmp/home     --shm-size=16G     --net host     -u root     $DOCKER_IMAGE "/bin/sh"     
