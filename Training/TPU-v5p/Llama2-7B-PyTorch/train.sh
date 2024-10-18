@@ -30,5 +30,6 @@ python3 examples/pytorch/language-modeling/run_clm.py \
   --fsdp_config "${LOCAL_DIR}/fsdp_config.json" \
   --torch_dtype bfloat16 \
   --dataloader_drop_last yes \
-  --flash_attention \
   --max_steps "$MAX_STEPS"
+
+#--flash_attention \
