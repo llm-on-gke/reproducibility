@@ -1,16 +1,16 @@
 #!/bin/bash
 # Remove existing repo and old data.
-LOCAL_DIR=/tmp/home/
-rm -rf "${LOCAL_DIR}/output"
-rm -rf "${LOCAL_DIR}/plugins"
-rm -rf "${LOCAL_DIR}/cache"
+LOCAL_DIR=$PWD
+#rm -rf "${LOCAL_DIR}/output"
+#rm -rf "${LOCAL_DIR}/plugins"
+#rm -rf "${LOCAL_DIR}/cache"
 mkdir -p "${LOCAL_DIR}/output"
 mkdir -p "${LOCAL_DIR}/plugins"
 mkdir -p "${LOCAL_DIR}/cache"
 
 unset LD_PRELOAD
 
-
+source env.sh
 cd transformers/
 python3 examples/pytorch/language-modeling/run_clm.py \
   --dataset_name wikitext \
