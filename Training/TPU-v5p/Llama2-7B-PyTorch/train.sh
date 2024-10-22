@@ -14,7 +14,7 @@ source env.sh
 cd transformers/
 python3 examples/pytorch/language-modeling/run_clm.py \
   --dataset_name wikitext \
-  --dataset_config_name wikitext-103-raw-v1 \
+  --dataset_config_name wikitext-2-raw-v1 \
   --per_device_train_batch_size "$BATCH_SIZE" \
   --do_train \
   --output_dir "${LOCAL_DIR}/output/test-clm" \
